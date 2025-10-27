@@ -35,7 +35,7 @@ app.use("/api/todos", todoRoute);
 app.use("/auth", authRoute);
 
 app.get("/", (req, res) => {
-  res.send("Hello ji 👋 Server is working fine on Vercel!");
+  res.send("Hello Rohit 👋 Server is working fine on Vercel!");
 });
 
 // ❌ Don't use app.listen on Vercel
