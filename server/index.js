@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 // ✅ Allow frontend origin explicitly
 const allowedOrigins = [
-  "https://todo-delta-henna-47.vercel.app", // your frontend domain
+  "https://todo-mxwd.vercel.app", 
   "http://localhost:5173" // for local testing
 ];
 
