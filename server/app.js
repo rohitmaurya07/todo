@@ -1,34 +1,30 @@
-import express from "express"
-import mongoose from "mongoose"
-import 'dotenv/config'
-import cors from 'cors';
+// index.js
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
 import todoRoute from "./routes/todoRoutes.js";
 import authRoute from "./routes/authRoutes.js";
-const app = express()
-app.use(cors())
-app.use(express.json())
-const port = 3000
 
+dotenv.config();
 
-async function main() {
-     await mongoose.connect(process.env.MONGO_URI)
-     console.log("Connection Success");
-     
-}
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-main()
+// ✅ Connect MongoDB
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected successfully"))
+  .catch((err) => console.error("❌ MongoDB connection failed:", err));
 
-app.use('/api/todos', todoRoute);
-app.use('/auth', authRoute);
+// ✅ Routes
+app.use("/api/todos", todoRoute);
+app.use("/auth", authRoute);
 
-app.get("/",(req,res)=>{
-    res.send("Hello ji")
-})
+app.get("/", (req, res) => {
+  res.send("Hello ji 👋 Server is working fine on Vercel!");
+});
 
-
-
-
-// Starting Backend
-// app.listen(port,()=>{
-//         console.log(`App is listening on ${port}`)
-// })
+// ❌ Don't use app.listen on Vercel
+export default app;
