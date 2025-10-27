@@ -21,7 +21,7 @@ const Dasboard = () => {
 console.log("effect");
 
         const fetchTodos = async () => {
-            const task = await fetch("http://localhost:3000/api/todos/",{
+            const task = await fetch("https://todo-9ybi-jrmf8cne5-purecoder7s-projects.vercel.app/api/todos/",{
             headers: { Authorization: `Bearer ${Token}` }})
             const data = await task.json()
             console.log(data);
@@ -36,7 +36,7 @@ console.log("effect");
     // Get from todoInput and set input text 
     const setInput = async (inputData) => {
 
-        let res = await fetch("http://localhost:3000/api/todos",
+        let res = await fetch("https://todo-9ybi-jrmf8cne5-purecoder7s-projects.vercel.app/api/todos",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${Token}` },
@@ -48,7 +48,7 @@ console.log("effect");
 
     // Delete Task
  const deletTask = async (id) => {
-    await fetch(`http://localhost:3000/api/todos/${id}`, {
+    await fetch(`https://todo-9ybi-jrmf8cne5-purecoder7s-projects.vercel.app/api/todos/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${Token}` },
     });
@@ -62,7 +62,7 @@ console.log("effect");
     const editTask = async (id) => {
         const getTask = tasks.filter((item) => item._id == id)
         settext(getTask[0].text)
-        await fetch(`http://localhost:3000/api/todos/${id}`, {
+        await fetch(`https://todo-9ybi-jrmf8cne5-purecoder7s-projects.vercel.app/api/todos/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json', Authorization: `Bearer ${Token}`
@@ -77,7 +77,7 @@ console.log("effect");
 console.log("toggle start");
 
         // const getTask = tasks.filter(item=>item._id == id)
-        await fetch(`http://localhost:3000/api/todos/${id}`, {
+        await fetch(`https://todo-9ybi-jrmf8cne5-purecoder7s-projects.vercel.app/api/todos/${id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json', Authorization: `Bearer ${Token}`
