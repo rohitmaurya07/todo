@@ -14,7 +14,7 @@ const Login = ({setToken,setRefresh}) => {
 
     // Logic to Log user
     try{
-    const response = await fetch("http://localhost:3000/auth/login",{
+    const response = await fetch("https://todo-9ybi-jrmf8cne5-purecoder7s-projects.vercel.app/auth/login",{
          method: "POST",
       headers: {
         "Content-Type": "application/json",
