@@ -9,8 +9,20 @@ import authRoute from "./routes/authRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+// ✅ Allow frontend origin explicitly
+const allowedOrigins = [
+  "https://todo-delta-henna-47.vercel.app", // your frontend domain
+  "http://localhost:5173" // for local testing
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // ✅ Connect MongoDB
 mongoose
