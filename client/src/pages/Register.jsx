@@ -13,7 +13,7 @@ const Login = () => {
     // Logic to Log user
     
     try{
-    const response = await fetch("https://todo-9ybi-jrmf8cne5-purecoder7s-projects.vercel.app/auth/register",{
+    const response = await fetch("https://todo-8h1d.vercel.app/auth/register",{
          method: "POST",
       headers: {
         "Content-Type": "application/json",
